@@ -3,7 +3,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import springapp.domains.Product;
+import springapp.domain.Product;
 @Component
 public interface ProductDao { 
     public List<Product> getProductList(); 

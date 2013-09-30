@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import springapp.domains.Product;
-import springapp.services.ProductManager;
+import springapp.domain.Product;
+import springapp.service.ProductManager;
 
 @Controller
 @RequestMapping("/addproduct.htm")

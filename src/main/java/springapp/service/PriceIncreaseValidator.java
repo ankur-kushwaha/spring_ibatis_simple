@@ -1,4 +1,4 @@
-package springapp.services; 
+package springapp.service; 
 import org.springframework.validation.Validator;
 import org.springframework.validation.Errors; 
 import org.apache.commons.logging.Log;

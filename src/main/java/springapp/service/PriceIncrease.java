@@ -1,4 +1,4 @@
-package springapp.services; 
+package springapp.service; 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory; 
 public class PriceIncrease { 

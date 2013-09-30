@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,25 +16,23 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.ModelAndView;
 
-import springapp.domains.Product;
-import springapp.services.ProductManager;
+import springapp.domain.Product;
+import springapp.service.ProductManager;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "springapp-servlet.xml" })
-
+@ContextConfiguration(locations={"classpath:springapp-servlet.xml"})
 public class InventoryControllerTest extends Mockito{
+	protected final Log logger = LogFactory.getLog(getClass());
 	@Mock
-	@Autowired
 	ProductManager productManager; 
 	
 	@InjectMocks
 	@Autowired
 	public InventoryController inventoryController;
-	
-	
 	
 	@Before
 	public void setUp(){
@@ -42,9 +42,13 @@ public class InventoryControllerTest extends Mockito{
 	
 	@Test
 	public void testNextPage() throws Exception{
-        ModelAndView nextPage = null;
-        nextPage = inventoryController.handleRequest(null, null);
-        assertEquals("Expected", "hello", nextPage.getViewName());
+        ModelAndView modelAndView = inventoryController.handleRequest(null, null);
         verify(productManager).getProducts();
+        assertEquals("hello", modelAndView.getViewName());
+        assertNotNull(modelAndView.getModel());
+        String nowValue = (String) modelAndView.getModel().get("now");
+        logger.info("returning hello view with " + nowValue);
+        assertNotNull(nowValue);
 	}
+	
 }

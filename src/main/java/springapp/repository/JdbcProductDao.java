@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import springapp.domains.Product;
+import springapp.domain.Product;
 import springapp.mapper.ProductMapper;
 @Component
 public class JdbcProductDao implements ProductDao { 

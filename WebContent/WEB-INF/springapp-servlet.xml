@@ -14,7 +14,7 @@
 	<!-- the application context definition for the springapp DispatcherServlet -->
 
 	<context:component-scan
-		base-package="springapp.web,springapp.repository,springapp.services,springapp.domains" />
+		base-package="springapp.web,springapp.repository,springapp.service,springapp.domain" />
 
 	<mvc:annotation-driven />
 
