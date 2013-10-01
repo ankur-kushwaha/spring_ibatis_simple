@@ -25,6 +25,14 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<resources>
+      <resource>
+        <directory>test</directory>
+        <excludes>
+          <exclude>*</exclude>
+        </excludes>
+      </resource>
+    </resources>
 	</build>
 	<dependencies>
 		<dependency>
