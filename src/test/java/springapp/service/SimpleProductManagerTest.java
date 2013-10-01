@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import springapp.domain.Product; 
+import springapp.domain.Product;
 import springapp.repository.ProductDao;
 import junit.framework.TestCase; 
 
@@ -57,7 +57,6 @@ public class SimpleProductManagerTest extends Mockito {
         products.add(product);        
         when(productdao.getProductList()).thenReturn(products);
 	}
-    @Ignore
     @Test
     public void testGetProductsWithNoProducts() {
     	when(productdao.getProductList()).thenReturn(new ArrayList<Product>());
@@ -67,7 +66,6 @@ public class SimpleProductManagerTest extends Mockito {
     		assertEquals(IndexOutOfBoundsException.class, e.getClass());
     	}
     } 
-    @Ignore
     @Test
     public void testGetProducts() {
         List<Product> products = productManager.getProducts();
@@ -80,7 +78,6 @@ public class SimpleProductManagerTest extends Mockito {
         assertEquals(TABLE_DESCRIPTION, product.getDescription());
         assertEquals(TABLE_PRICE, product.getPrice());      
     }
-    @Ignore
     @Test
     public void testIncreasePriceWithNullListOfProducts() {
         try {
@@ -91,7 +88,6 @@ public class SimpleProductManagerTest extends Mockito {
         	assertEquals(NullPointerException.class, ex.getClass());
         }
     }
-    @Ignore
     @Test
     public void testIncreasePriceWithEmptyListOfProducts() {
         try {
